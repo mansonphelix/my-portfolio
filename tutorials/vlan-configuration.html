@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VLAN Configuration for Office Networks | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>VLAN Configuration</span>
+        </nav>
+        <h1 data-i18n="tut6.title">VLAN Configuration for Office Networks</h1>
+        <p data-i18n="tut6.meta">Networking · 13 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/rohan-ZoXCoH7tja0-unsplash.jpg" alt="Network switch" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to plan VLANs for office, guest and CCTV traffic</li>
+                <li>Switch port assignment and trunk configuration</li>
+                <li>Inter-VLAN routing on routers and Layer 3 switches</li>
+                <li>Common VLAN pitfalls and how to avoid them</li>
+              </ul>
+            </div>
+            <p>VLANs help separate traffic types on a shared network. In an office, you might isolate management systems, staff devices, guest Wi-Fi and CCTV onto different VLANs. This reduces broadcast traffic and makes troubleshooting much simpler.</p>
+
+            <h2>1. Plan your VLANs</h2>
+            <ul>
+              <li>VLAN 10: Staff devices</li>
+              <li>VLAN 20: Servers and management</li>
+              <li>VLAN 30: Guest Wi-Fi</li>
+              <li>VLAN 40: CCTV and security</li>
+            </ul>
+
+            <h2>2. Configure the switch</h2>
+            <p>Create each VLAN on the switch and assign access ports to the appropriate VLAN. Keep a spreadsheet of port-to-VLAN mappings for easy audits.</p>
+
+            <h2>3. Configure the router or Layer 3 switch</h2>
+            <p>If your devices on different VLANs need to communicate, configure inter-VLAN routing. On a router this is typically done with sub-interfaces; on a managed Layer 3 switch it is often simpler.</p>
+
+            <h2>4. Test and verify</h2>
+            <ul>
+              <li>Confirm devices can reach their default gateway</li>
+              <li>Verify that a device on one VLAN cannot reach another VLAN unless routed</li>
+              <li>Check DHCP scope and DNS resolution</li>
+            </ul>
+
+            <h2>5. Common pitfalls</h2>
+            <ul>
+              <li>Forgetting native VLAN settings on trunk links</li>
+              <li>Mismatched VLAN IDs between switches</li>
+              <li>Allowing all VLANs on a trunk when only a subset is needed</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="network-design.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/rohan-ZoXCoH7tja0-unsplash.jpg" alt="Network Design" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">Designing a Small Office Network (CCNA Basics)</span>
+              </div>
+            </a>
+            <a href="active-directory.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Active Directory" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Windows Server: Setting Up Active Directory</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+          <p data-i18n="footer.tagline">IT Manager & Systems Engineer. Building reliable infrastructure and practical tools in Ghana.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="../pages/about.html" data-i18n="nav.about">About</a>
+          <a href="../pages/skills.html" data-i18n="nav.skills">Skills</a>
+          <a href="../pages/experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="../pages/projects.html" data-i18n="nav.projects">Projects</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a>
+          <a href="../pages/education.html" data-i18n="nav.education">Education</a>
+          <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <a href="mailto:mansonphelix@gmail.com">Email</a>
+          <a href="tel:+233206970842">020 697 0842</a>
+          <a href="https://wa.me/233206970842" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

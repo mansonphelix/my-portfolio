@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Directory Group Policy Essentials | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Group Policy</span>
+        </nav>
+        <h1 data-i18n="tut8.title">Active Directory Group Policy Essentials</h1>
+        <p data-i18n="tut8.meta">Windows Server · 12 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Active Directory" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Organising GPOs with OUs for better scope</li>
+                <li>Applying security baselines across the domain</li>
+                <li>Deploying software with Group Policy</li>
+                <li>Drive maps, printers and maintenance tips</li>
+              </ul>
+            </div>
+            <p>Group Policy is one of the most powerful tools in a Windows Server environment. Used well, it enforces security baselines, deploys software and standardises user settings across the domain. Used poorly, it causes confusion and support tickets.</p>
+
+            <h2>1. Organise with OUs</h2>
+            <p>Link Group Policy Objects to Organisational Units rather than the domain root whenever possible. This keeps policies scoped to the users or computers that actually need them.</p>
+
+            <h2>2. Start with security baselines</h2>
+            <ul>
+              <li>Password policy and account lockout thresholds</li>
+              <li>Windows Firewall rules for domain profiles</li>
+              <li>Screen lock and inactivity timeout settings</li>
+              <li>Restricted groups for local administrators</li>
+            </ul>
+
+            <h2>3. Deploy software wisely</h2>
+            <p>Use software installation policies for widely used applications. Test on a small OU first and monitor installation success with event logs before rolling out broadly.</p>
+
+            <h2>4. Drive maps and printers</h2>
+            <p>Item-level targeting lets you map drives and printers based on group membership, location or device type. Avoid creating separate policies for every single department if you can group them logically.</p>
+
+            <h2>5. Maintenance tips</h2>
+            <ul>
+              <li>Use clear naming conventions for GPOs</li>
+              <li>Document what each policy does and who requested it</li>
+              <li>Run <code>gpresult /h</code> during troubleshooting to see applied settings</li>
+              <li>Back up GPOs regularly using the Group Policy Management Console</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="active-directory.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/server.jpg" alt="Active Directory" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">Windows Server: Setting Up Active Directory</span>
+              </div>
+            </a>
+            <a href="linux-server-setup.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/jakub-zerdzicki-WD7S-Lz12Es-unsplash.jpg" alt="Linux Server" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Linux Server Setup & Hardening</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+          <p data-i18n="footer.tagline">IT Manager & Systems Engineer. Building reliable infrastructure and practical tools in Ghana.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="../pages/about.html" data-i18n="nav.about">About</a>
+          <a href="../pages/skills.html" data-i18n="nav.skills">Skills</a>
+          <a href="../pages/experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="../pages/projects.html" data-i18n="nav.projects">Projects</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a>
+          <a href="../pages/education.html" data-i18n="nav.education">Education</a>
+          <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <a href="mailto:mansonphelix@gmail.com">Email</a>
+          <a href="tel:+233206970842">020 697 0842</a>
+          <a href="https://wa.me/233206970842" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

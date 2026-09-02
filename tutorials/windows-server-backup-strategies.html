@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows Server Backup Strategies | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Windows Server Backup Strategies</span>
+        </nav>
+        <h1 data-i18n="tut9.title">Windows Server Backup Strategies</h1>
+        <p data-i18n="tut9.meta">Windows Server · 10 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/christian-bolt-UV2fGzR-H3A-unsplash.jpg" alt="Server backup" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to schedule backups with Windows Server Backup</li>
+                <li>What to include and exclude in a backup plan</li>
+                <li>How to test restores so you know the plan works</li>
+                <li>Retention and rotation basics for small environments</li>
+              </ul>
+            </div>
+
+            <p>A backup strategy is only as good as your last successful restore test. In production environments I manage, I combine scheduled Windows Server Backup with periodic full restores to a spare disk or VM snapshot so failures never become surprises.</p>
+
+            <h2>1. Choose backup targets</h2>
+            <ul>
+              <li><strong>Internal disk</strong> — fast, but not safe against disk or server failure.</li>
+              <li><strong>External USB / eSATA</strong> — simple, good for daily backups and rotation.</li>
+              <li><strong>Network share (SMB)</strong> — useful for off-site copies, but slower and dependent on network availability.</li>
+            </ul>
+            <p>I prefer at least two destinations: a local fast target for quick restores, and a secondary target for longer retention.</p>
+
+            <h2>2. Configure Windows Server Backup</h2>
+            <pre>Install-WindowsFeature -Name Windows-Server-Backup</pre>
+            <p>From Server Manager or PowerShell, create a backup schedule that includes:</p>
+            <ul>
+              <li>System State — critical for domain controllers</li>
+              <li>Full server (bare metal) — for complete recovery</li>
+              <li>Volumes that host application data — files, databases, or shares</li>
+            </ul>
+
+            <h2>3. Retention and rotation</h2>
+            <p>For small environments, a 14–30 day rotation on external disks works well. Label disks with dates, and keep at least one copy off-site or in a different physical location.</p>
+
+            <h2>4. Test restores regularly</h2>
+            <p>Schedule restore tests monthly. Restore to a test VM or spare machine, verify application data integrity, and document the time it takes. A backup that has never been tested should be considered unknown.</p>
+
+            <blockquote>The question is not whether your hard drive will fail, but when. Backups buy you the option to recover; testing confirms the option works.</blockquote>
+
+            <h2>5. Quick checklist</h2>
+            <ul>
+              <li>Daily or weekly scheduled backups with email alerts</li>
+              <li>At least two backup destinations</li>
+              <li>Monthly restore test with documented result</li>
+              <li>Off-site or cloud copy for disaster recovery</li>
+              <li>Backup of configuration exports (DHCP scopes, GPO backups, IIS config)</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="active-directory-gpo.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Active Directory Group Policy" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">Active Directory Group Policy Essentials</span>
+              </div>
+            </a>
+            <a href="network-monitoring-observability.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/dao-hi-u-pwSNC_ygKHM-unsplash.jpg" alt="Network monitoring" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Network Monitoring & Observability</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

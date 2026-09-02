@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Server Setup & Hardening | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Linux Server Setup</span>
+        </nav>
+        <h1 data-i18n="tut5.title">Linux Server Setup & Hardening</h1>
+        <p data-i18n="tut5.meta">Linux · 11 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/jakub-zerdzicki-WD7S-Lz12Es-unsplash.jpg" alt="Linux server" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Minimal OS installation and LVM configuration</li>
+                <li>SSH hardening and key-based authentication</li>
+                <li>Firewall setup with UFW</li>
+                <li>Ongoing maintenance and backup strategies</li>
+              </ul>
+            </div>
+            <p>Linux servers are the backbone of most modern infrastructure. This guide covers the essential steps I follow when provisioning a new Linux server for small offices, including baseline configuration, user management, firewall setup and basic hardening.</p>
+
+            <h2>1. Initial OS installation</h2>
+            <ul>
+              <li>Use a minimal installation where possible to reduce attack surface</li>
+              <li>Configure LVM during install for flexible disk management</li>
+              <li>Set a static IP address and hostname that fits your naming scheme</li>
+              <li>Enable automatic security updates during installation if available</li>
+            </ul>
+
+            <h2>2. System updates and essentials</h2>
+            <pre>sudo apt update && sudo apt upgrade -y
+sudo apt install -y ufw fail2ban curl git htop</pre>
+            <p>Keep the system fully patched before installing additional services. Install only the packages you actually need.</p>
+
+            <h2>3. User and SSH configuration</h2>
+            <ul>
+              <li>Create a dedicated admin user with sudo privileges</li>
+              <li>Disable root SSH login in <code>/etc/ssh/sshd_config</code></li>
+              <li>Use SSH key authentication instead of passwords</li>
+              <li>Change the default SSH port to reduce automated attacks</li>
+            </ul>
+
+            <h2>4. Firewall setup</h2>
+            <p>Enable the firewall early and allow only required ports. A typical server might need SSH and one or two application ports open.</p>
+
+            <h2>5. Ongoing maintenance</h2>
+            <ul>
+              <li>Monitor disk usage and log rotation</li>
+              <li>Review <code>fail2ban</code> logs periodically</li>
+              <li>Apply security updates weekly</li>
+              <li>Keep off-site backups of critical configuration files</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="active-directory-gpo.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Group Policy" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Active Directory Group Policy Essentials</span>
+              </div>
+            </a>
+            <a href="cctv-deploy.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/CCTV.jpg" alt="CCTV Deployment" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Deploying CCTV with Remote Access</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+          <p data-i18n="footer.tagline">IT Manager & Systems Engineer. Building reliable infrastructure and practical tools in Ghana.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="../pages/about.html" data-i18n="nav.about">About</a>
+          <a href="../pages/skills.html" data-i18n="nav.skills">Skills</a>
+          <a href="../pages/experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="../pages/projects.html" data-i18n="nav.projects">Projects</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a>
+          <a href="../pages/education.html" data-i18n="nav.education">Education</a>
+          <a href="../pages/contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <a href="mailto:mansonphelix@gmail.com">Email</a>
+          <a href="tel:+233206970842">020 697 0842</a>
+          <a href="https://wa.me/233206970842" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

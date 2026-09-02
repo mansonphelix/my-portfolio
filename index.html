@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manso Felix Kofi — IT Manager & Systems Engineer. Networks, servers, CCTV and web tools in Ghana." />
+  <meta name="theme-color" content="#0b1120" />
+  <title>Manso Felix Kofi | IT Manager & Systems Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css?v=1788377426" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <div class="nav__menu-header">
+          <div class="nav__profile">
+            <div class="nav__avatar">MFK</div>
+            <div class="nav__profile-text">
+              <strong data-i18n="drawer.title">Menu</strong>
+              <span>Manso Felix Kofi<span>.</span></span>
+            </div>
+          </div>
+          <button class="nav__close" id="nav-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        </div>
+
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link active" data-i18n="nav.home"><span class="nav__link-text">Home</span></a></li>
+          <li><a href="pages/about.html" class="nav__link" data-i18n="nav.about"><span class="nav__link-text">About</span></a></li>
+          <li><a href="pages/skills.html" class="nav__link" data-i18n="nav.skills"><span class="nav__link-text">Skills</span></a></li>
+          <li><a href="pages/experience.html" class="nav__link" data-i18n="nav.experience"><span class="nav__link-text">Experience</span></a></li>
+          <li><a href="pages/projects.html" class="nav__link" data-i18n="nav.projects"><span class="nav__link-text">Projects</span></a></li>
+          <li><a href="pages/tutorials.html" class="nav__link" data-i18n="nav.tutorials"><span class="nav__link-text">Tutorials</span></a></li>
+          <li><a href="pages/education.html" class="nav__link" data-i18n="nav.education"><span class="nav__link-text">Education</span></a></li>
+          <li><a href="pages/contact.html" class="nav__link" data-i18n="nav.contact"><span class="nav__link-text">Contact</span></a></li>
+        </ul>
+
+
+        <div class="nav__menu-footer">
+          <p class="nav__eyebrow nav__eyebrow--inline" data-i18n="drawer.preferences">Preferences</p>
+          <div class="nav__menu-actions">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" data-lang="en" class="active">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+            </div>
+            <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+          </div>
+          <a href="pages/contact.html" class="nav__cta"><i class="fas fa-paper-plane"></i><span data-i18n="drawer.cta">Let's Talk</span></a>
+        </div>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <canvas id="particles-canvas" aria-hidden="true"></canvas>
+      <div class="hero__container container">
+        <div class="hero__content">
+          <h1 class="hero__title reveal reveal-delay-1">
+            <span data-i18n="hero.title">Manso Felix Kofi</span>
+          </h1>
+          <p class="hero__role reveal reveal-delay-2">
+            <span class="typed-text" id="typed-text"></span><span class="cursor">|</span>
+          </p>
+          <p class="hero__desc reveal reveal-delay-3" data-i18n="hero.desc">
+            Building reliable networks, servers, CCTV systems and practical web tools that keep organisations running across Ghana.
+          </p>
+          <div class="hero__cta reveal reveal-delay-3">
+            <a href="pages/contact.html" class="btn btn--primary" data-i18n="hero.cta1">Get in Touch</a>
+            <a href="pages/projects.html" class="btn btn--outline" data-i18n="hero.cta2">View Projects</a>
+          </div>
+          <div class="hero__social reveal reveal-delay-4">
+            <a href="mailto:mansonphelix@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+233206970842" aria-label="Phone"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/233206970842" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="hero__visual reveal">
+          <div class="hero__image-wrap">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Server infrastructure and network equipment" width="800" height="1000" loading="eager" />
+            <div class="hero__image-overlay"></div>
+            <div class="hero__stats">
+              <div class="hero__stat">
+                <span class="hero__stat-num">3+</span>
+                <span class="hero__stat-label" data-i18n="hero.stat1">Years Exp.</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num">5+</span>
+                <span class="hero__stat-label" data-i18n="hero.stat2">Certifications</span>
+              </div>
+              <div class="hero__stat">
+                <span class="hero__stat-num" data-i18n="hero.stat3val">Uptime</span>
+                <span class="hero__stat-label" data-i18n="hero.stat3">Focus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills preview -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow" data-i18n="nav.skills">Skills</span>
+          <h2 class="section__title" data-i18n="home.skills.title">Core Competencies</h2>
+          <p class="section__subtitle" data-i18n="home.skills.sub">Technical strengths that deliver reliable infrastructure</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card skill-card reveal">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&q=80" alt="IT Systems Management" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill1.title">IT Systems Management</h3>
+            <p data-i18n="skill1.desc">Network design, server administration, and long-term infrastructure planning.</p>
+          </article>
+          <article class="card skill-card reveal reveal-delay-1">
+            <img src="./assets/images/server.jpg" alt="Windows Server" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill2.title">Windows Server</h3>
+            <p data-i18n="skill2.desc">Microsoft Windows Server administration and internet routing protocols.</p>
+          </article>
+          <article class="card skill-card reveal reveal-delay-2">
+            <img src="./assets/images/hardware.jpg" alt="Hardware & Software" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill3.title">Hardware & Software</h3>
+            <p data-i18n="skill3.desc">Installation, configuration, and troubleshooting of systems and applications.</p>
+          </article>
+          <article class="card skill-card reveal reveal-delay-3">
+            <img src="../assets/images/CCTV.jpg" alt="CCTV Systems" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill4.title">CCTV Systems</h3>
+            <p data-i18n="skill4.desc">End-to-end deployment, configuration, and ongoing management of surveillance systems.</p>
+          </article>
+          <article class="card skill-card reveal">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&q=80" alt="OS Proficiency" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill5.title">OS Proficiency</h3>
+            <p data-i18n="skill5.desc">Comfortable administering both Windows and Linux-based operating systems.</p>
+          </article>
+          <article class="card skill-card reveal reveal-delay-1">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&q=80" alt="Web development code and database" class="skill-card__img" loading="lazy">
+            <h3 data-i18n="skill6.title">Web & Database</h3>
+            <p data-i18n="skill6.desc">Web application and database design & development with PHP and MySQL.</p>
+          </article>
+        </div>
+        <div class="reveal" style="text-align:center;margin-top:2rem">
+          <a href="pages/skills.html" class="btn btn--ghost" data-i18n="nav.skills">Skills</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow" data-i18n="nav.experience">Experience</span>
+          <h2 class="section__title" data-i18n="home.exp.title">Recent Experience</h2>
+          <p class="section__subtitle" data-i18n="home.exp.sub">Hands-on roles in public and private sector</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <span class="timeline__date" data-i18n="exp1.date">2025 – Present</span>
+            <h3 class="timeline__title" data-i18n="exp1.title">IT Manager</h3>
+            <p class="timeline__company" data-i18n="exp1.company">Dream Company Limited</p>
+            <ul class="timeline__list">
+              <li data-i18n="exp1.l1">Configure and manage computer systems, network infrastructure, and CCTV systems across the organisation.</li>
+              <li data-i18n="exp1.l2">Maintain system uptime and troubleshoot hardware/software issues to minimise operational disruption.</li>
+            </ul>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <span class="timeline__date" data-i18n="exp2.date">2022 – 2023</span>
+            <h3 class="timeline__title" data-i18n="exp2.title">IT Technician & MISO</h3>
+            <p class="timeline__company" data-i18n="exp2.company">GA North Municipal Assembly — National Service</p>
+            <ul class="timeline__list">
+              <li data-i18n="exp2.l1">Provided IT support and managed information systems as part of national service.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="reveal" style="text-align:center;margin-top:2.5rem">
+          <a href="pages/experience.html" class="btn btn--outline" data-i18n="nav.experience">Experience</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects preview -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow" data-i18n="nav.projects">Projects</span>
+          <h2 class="section__title" data-i18n="home.proj.title">Featured Projects</h2>
+          <p class="section__subtitle" data-i18n="home.proj.sub">Production tools and infrastructure work</p>
+        </div>
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="project-card__img">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80" alt="Security camera system setup" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags"><span class="tag">Network</span><span class="tag">CCTV</span></div>
+              <h3 data-i18n="proj1.title">Municipal Network & CCTV Rollout</h3>
+              <p data-i18n="proj1.desc">Designed and deployed structured cabling, switches, and multi-site CCTV for a municipal assembly.</p>
+              <a href="pages/projects.html" class="btn btn--sm btn--ghost" data-i18n="nav.projects">Projects</a>
+            </div>
+          </article>
+          <article class="card project-card reveal reveal-delay-1">
+            <div class="project-card__img">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="Server room and data cables" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags"><span class="tag">Windows Server</span><span class="tag">AD</span></div>
+              <h3 data-i18n="proj2.title">Windows Server Domain & File Services</h3>
+              <p data-i18n="proj2.desc">Implemented Active Directory, group policy, and centralised file shares with backup routines.</p>
+              <a href="pages/projects.html" class="btn btn--sm btn--ghost" data-i18n="nav.projects">Projects</a>
+            </div>
+          </article>
+          <article class="card project-card reveal reveal-delay-2">
+            <div class="project-card__img">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" alt="PHP web development code" loading="lazy" />
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags"><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+              <h3 data-i18n="proj3.title">Internal Inventory Web App</h3>
+              <p data-i18n="proj3.desc">Built a PHP/MySQL web application for asset tracking, issue logging and reporting.</p>
+              <a href="pages/projects.html" class="btn btn--sm btn--ghost" data-i18n="nav.projects">Projects</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tutorials preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow" data-i18n="nav.tutorials">Tutorials</span>
+          <h2 class="section__title" data-i18n="home.tut.title">Latest Tutorials</h2>
+          <p class="section__subtitle" data-i18n="home.tut.sub">Practical guides from real-world experience</p>
+        </div>
+        <div class="tutorials-grid">
+          <article class="card tutorial-card reveal">
+            <div class="tutorial-card__img">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop" alt="Networking architecture planning" loading="lazy" />
+            </div>
+            <div class="tutorial-card__body">
+              <div class="tutorial-card__meta" data-i18n="tut1.meta">Networking · 12 min read</div>
+              <h3 data-i18n="tut1.title">Designing a Small Office Network (CCNA Basics)</h3>
+              <p data-i18n="tut1.desc">Step-by-step approach to planning IP addressing, switches, and basic routing.</p>
+              <a href="tutorials/network-design.html" class="btn btn--sm btn--ghost" data-i18n="tut.read">Read tutorial</a>
+            </div>
+          </article>
+          <article class="card tutorial-card reveal reveal-delay-1">
+            <div class="tutorial-card__img">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80" alt="Windows Server tutorial" loading="lazy" />
+            </div>
+            <div class="tutorial-card__body">
+              <div class="tutorial-card__meta" data-i18n="tut2.meta">Windows Server · 15 min read</div>
+              <h3 data-i18n="tut2.title">Windows Server: Setting Up Active Directory</h3>
+              <p data-i18n="tut2.desc">From installing the role to creating users, groups and a first Group Policy Object.</p>
+              <a href="tutorials/active-directory.html" class="btn btn--sm btn--ghost" data-i18n="tut.read">Read tutorial</a>
+            </div>
+          </article>
+          <article class="card tutorial-card reveal reveal-delay-2">
+            <div class="tutorial-card__img">
+              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&q=80" alt="CCTV tutorial" loading="lazy" />
+            </div>
+            <div class="tutorial-card__body">
+              <div class="tutorial-card__meta" data-i18n="tut3.meta">CCTV · 10 min read</div>
+              <h3 data-i18n="tut3.title">Deploying CCTV with Remote Access</h3>
+              <p data-i18n="tut3.desc">Practical checklist for camera placement, NVR setup and secure remote viewing.</p>
+              <a href="tutorials/cctv-deploy.html" class="btn btn--sm btn--ghost" data-i18n="tut.read">Read tutorial</a>
+            </div>
+          </article>
+        </div>
+        <div class="reveal" style="text-align:center;margin-top:2rem">
+          <a href="pages/tutorials.html" class="btn btn--outline" data-i18n="nav.tutorials">Tutorials</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--alt">
+      <div class="container" style="text-align:center">
+        <h2 class="section__title reveal" data-i18n="home.cta.title">Ready to strengthen your IT systems?</h2>
+        <p class="section__subtitle reveal" style="margin-bottom:1.75rem" data-i18n="home.cta.sub">Let's discuss networks, servers, CCTV or custom tools for your organisation.</p>
+        <a href="pages/contact.html" class="btn btn--primary reveal" data-i18n="home.cta.btn">Contact Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">MFK<span>.</span></a>
+          <p data-i18n="footer.tagline">IT Manager & Systems Engineer. Building reliable infrastructure and practical tools in Ghana.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="pages/about.html" data-i18n="nav.about">About</a>
+          <a href="pages/skills.html" data-i18n="nav.skills">Skills</a>
+          <a href="pages/experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="pages/projects.html" data-i18n="nav.projects">Projects</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a>
+          <a href="pages/education.html" data-i18n="nav.education">Education</a>
+          <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <div class="footer__socials">
+            <a href="mailto:mansonphelix@gmail.com" class="footer__social" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/mansofkgh" class="footer__social" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mansofelixkofi" class="footer__social" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/233206970842" class="footer__social" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+233206970842" class="footer__social" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

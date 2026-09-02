@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Monitoring & Observability | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Network Monitoring & Observability</span>
+        </nav>
+        <h1 data-i18n="tut10.title">Network Monitoring & Observability</h1>
+        <p data-i18n="tut10.meta">Networking · 11 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/dao-hi-u-pwSNC_ygKHM-unsplash.jpg" alt="Network monitoring" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to choose the right monitoring approach for a small network</li>
+                <li>Setting up SNMP, ping sweeps and port checks</li>
+                <li>Creating useful alerts without alert fatigue</li>
+                <li>Basic log review patterns that catch issues early</li>
+              </ul>
+            </div>
+
+            <p>Good monitoring does not mean more alerts — it means better signals. The setups I use focus on availability, latency, and error rates rather than noisy per-packet metrics that no one acts on.</p>
+
+            <h2>1. Define what matters</h2>
+            <p>Start with services that hurt most when they fail:</p>
+            <ul>
+              <li>Internet gateway and WAN link availability</li>
+              <li>Core switches and Wi-Fi controllers</li>
+              <li>Domain controllers, file servers and NVRs</li>
+              <li>Backup job completion</li>
+            </ul>
+
+            <h2>2. Basic monitoring tools</h2>
+            <p>For small networks, a combination of free and built-in tools is often enough:</p>
+            <ul>
+              <li><strong>SNMP</strong> — interface counters, CPU and memory on switches and servers</li>
+              <li><strong>ICMP / ping sweeps</strong> — host availability at a glance</li>
+              <li><strong>Port checks</strong> — confirm services are reachable (RDP, SMB, HTTP, SIP)</li>
+              <li><strong>Log events</strong> — Windows Event Logs, syslog, firewall logs</li>
+            </ul>
+
+            <h2>3. Alerting rules that work</h2>
+            <p>Avoid alert fatigue by only alerting on:</p>
+            <ul>
+              <li>Complete service loss, not temporary blips</li>
+              <li>Threshold breaches that match real user impact</li>
+              <li>Recurring failures inside a short window</li>
+            </ul>
+            <p>Route alerts to the person who can fix the problem, not to a shared inbox that gets ignored.</p>
+
+            <h2>4. Log review routine</h2>
+            <p>Schedule 15–30 minutes daily to scan:</p>
+            <ul>
+              <li>Failed logon events and account lockouts</li>
+              <li>Switch port flaps or interface errors</li>
+              <li>Backup job failures</li>
+              <li>Firewall blocked traffic spikes</li>
+            </ul>
+
+            <blockquote>Monitoring is not a dashboard; it is a habit. The best observability setup is one that someone actually reviews.</blockquote>
+
+            <h2>5. Quick start checklist</h2>
+            <ul>
+              <li>Enable SNMP on managed switches and define community strings</li>
+              <li>Add core hosts to a ping monitor with a 2-minute interval</li>
+              <li>Create email alerts for service-down events only</li>
+              <li>Document where logs live and who reviews them</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="windows-server-backup-strategies.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/christian-bolt-UV2fGzR-H3A-unsplash.jpg" alt="Windows Server Backup" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">Windows Server Backup Strategies</span>
+              </div>
+            </a>
+            <a href="cctv-maintenance-troubleshooting.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/jakub-zerdzicki-WD7S-Lz12Es-unsplash.jpg" alt="CCTV maintenance" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">CCTV Maintenance & Troubleshooting</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

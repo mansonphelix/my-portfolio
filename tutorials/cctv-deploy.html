@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploying CCTV with Remote Access | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>CCTV Deploy</span>
+        </nav>
+        <h1 data-i18n="tut3.title">Deploying CCTV with Remote Access</h1>
+        <p data-i18n="tut3.meta">CCTV · 10 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/CCTV.jpg" alt="CCTV camera" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Camera placement and field of view planning</li>
+                <li>NVR setup, recording schedules and storage</li>
+                <li>Port forwarding and secure remote access</li>
+                <li>User training and maintenance best practices</li>
+              </ul>
+            </div>
+            <p>A well-planned CCTV system protects people and assets and gives management clear visibility. This checklist covers placement, NVR setup, and secure remote viewing based on deployments I have carried out.</p>
+
+            <h2>1. Site survey</h2>
+            <ul>
+              <li>Identify critical areas: entrances, cash points, server rooms, parking, corridors</li>
+              <li>Note lighting conditions (day/night) and existing power</li>
+              <li>Measure approximate cable runs to the NVR location</li>
+              <li>Decide indoor vs outdoor and fixed vs PTZ needs</li>
+            </ul>
+
+            <h2>2. Camera and NVR selection</h2>
+            <p>Match resolution and features to the use case. For most offices and municipal sites, 2–4 MP fixed cameras with IR and a PoE NVR are sufficient. Ensure the NVR has enough channels and hard-drive capacity for the retention policy (commonly 14–30 days).</p>
+
+            <h2>3. Cabling</h2>
+            <p>Use Cat5e/Cat6 for IP cameras. Prefer PoE so power and data share one cable. Keep runs within PoE distance limits. Label every cable at both ends and document camera names (e.g. GATE-01, LOBBY-02).</p>
+
+            <h2>4. NVR configuration</h2>
+            <ul>
+              <li>Set a strong admin password immediately</li>
+              <li>Configure recording schedules and motion detection where useful</li>
+              <li>Create separate user accounts for security staff vs management (view-only where appropriate)</li>
+              <li>Enable network time protocol so timestamps stay accurate</li>
+            </ul>
+
+            <h2>5. Remote access — keep it secure</h2>
+            <p>Prefer manufacturer cloud / P2P services when available; they avoid opening ports. If port forwarding is required:</p>
+            <ul>
+              <li>Use non-default ports</li>
+              <li>Restrict source IPs if possible</li>
+              <li>Keep firmware updated</li>
+              <li>Never expose the NVR web interface to the whole internet without additional protection</li>
+            </ul>
+
+            <h2>6. Handover</h2>
+            <p>Train the designated staff on live view, playback, and export. Leave a one-page guide with camera map, login method, and support contact. Confirm retention period and backup of critical footage if required by policy.</p>
+
+            <blockquote>Remote viewing is only as safe as the weakest credential and the least updated firmware.</blockquote>
+
+            <p>When done carefully, CCTV becomes a reliable operational tool rather than a source of constant support calls.</p>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="linux-server-setup.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/jakub-zerdzicki-WD7S-Lz12Es-unsplash.jpg" alt="Linux Server" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">Linux Server Setup & Hardening</span>
+              </div>
+            </a>
+            <a href="cctv-placement.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/nina-rizzo-Vt6EgtT2O0w-unsplash.jpg" alt="CCTV Placement" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">CCTV Camera Placement & Best Practices</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

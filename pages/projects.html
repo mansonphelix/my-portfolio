@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Manso Felix Kofi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=1788377426" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <div class="nav__menu-header">
+          <div class="nav__profile">
+            <div class="nav__avatar">MFK</div>
+            <div class="nav__profile-text">
+              <strong data-i18n="drawer.title">Menu</strong>
+              <span>Manso Felix Kofi<span>.</span></span>
+            </div>
+          </div>
+          <button class="nav__close" id="nav-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        </div>
+
+        
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home"><span class="nav__link-text">Home</span></a></li>
+          <li><a href="about.html" class="nav__link" data-i18n="nav.about"><span class="nav__link-text">About</span></a></li>
+          <li><a href="skills.html" class="nav__link" data-i18n="nav.skills"><span class="nav__link-text">Skills</span></a></li>
+          <li><a href="experience.html" class="nav__link" data-i18n="nav.experience"><span class="nav__link-text">Experience</span></a></li>
+          <li><a href="projects.html" class="nav__link active" data-i18n="nav.projects"><span class="nav__link-text">Projects</span></a></li>
+          <li><a href="tutorials.html" class="nav__link" data-i18n="nav.tutorials"><span class="nav__link-text">Tutorials</span></a></li>
+          <li><a href="education.html" class="nav__link" data-i18n="nav.education"><span class="nav__link-text">Education</span></a></li>
+          <li><a href="contact.html" class="nav__link" data-i18n="nav.contact"><span class="nav__link-text">Contact</span></a></li>
+        </ul>
+
+
+        <div class="nav__menu-footer">
+          <p class="nav__eyebrow nav__eyebrow--inline" data-i18n="drawer.preferences">Preferences</p>
+          <div class="nav__menu-actions">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" data-lang="en" class="active">EN</button>
+              <button type="button" data-lang="fr">FR</button>
+            </div>
+            <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+          </div>
+          <a href="contact.html" class="nav__cta"><i class="fas fa-paper-plane"></i><span data-i18n="drawer.cta">Let&#39;s Talk</span></a>
+        </div>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero page-hero--has-image" style="--hero-image: url('../assets/images/growtika-WELyMatW3mw-unsplash.jpg')">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <span data-i18n="nav.projects">Projects</span>
+        </nav>
+        <h1 data-i18n="proj.pageTitle">Projects</h1>
+        <p data-i18n="proj.pageSub">Infrastructure deployments and production-ready tools</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="projects-header reveal">
+          <span class="section__eyebrow" data-i18n="proj.featuredEyebrow">Portfolio</span>
+          <h2 data-i18n="proj.featuredTitle">Featured Projects</h2>
+          <p data-i18n="proj.featuredSub">Production-ready infrastructure deployments and custom tools built for real-world organisations. Each project demonstrates practical problem-solving and attention to system reliability.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="project-card__img">
+              <img src="../assets/images/CCTV.jpg" alt="Municipal CCTV Network Infrastructure" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">Completed</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--network">Network</span>
+                <span class="tag tag--security">CCTV</span>
+              </div>
+              <h3 data-i18n="proj1.title">Municipal Network & CCTV Rollout</h3>
+              <p class="project-card__desc" data-i18n="proj1.desc">Designed and deployed structured cabling, managed switches, and multi-site surveillance system for a municipal assembly.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">15+</span>
+                  <span class="metric-label">Sites</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">120+</span>
+                  <span class="metric-label">Cameras</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">99.5%</span>
+                  <span class="metric-label">Uptime</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">Cisco Switches</span>
+                <span class="tech-badge">Cat6 Cabling</span>
+                <span class="tech-badge">NVR Systems</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-1">
+            <div class="project-card__img">
+              <img src="../assets/images/windows.jpg" alt="Windows Server Active Directory" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">Completed</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--server">Windows Server</span>
+                <span class="tag tag--admin">Active Directory</span>
+              </div>
+              <h3 data-i18n="proj2.title">Windows Server Domain & File Services</h3>
+              <p class="project-card__desc" data-i18n="proj2.desc">Implemented enterprise Active Directory infrastructure with group policy, centralised file sharing, and automated backup routines.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">500+</span>
+                  <span class="metric-label">Users</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">20TB</span>
+                  <span class="metric-label">Storage</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">Daily</span>
+                  <span class="metric-label">Backups</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">Active Directory</span>
+                <span class="tech-badge">Group Policy</span>
+                <span class="tech-badge">DFS Replication</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-2">
+            <div class="project-card__img">
+              <img src="../assets/images/dimitri-karastelev-pl6My-v7gnE-unsplash.jpg" alt="Web development interface" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">In Use</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--dev">PHP</span>
+                <span class="tag tag--dev">MySQL</span>
+              </div>
+              <h3 data-i18n="proj3.title">Internal Inventory Web App</h3>
+              <p class="project-card__desc" data-i18n="proj3.desc">Custom PHP/MySQL application for real-time asset tracking, issue logging, and automated reporting used by operations daily.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">2000+</span>
+                  <span class="metric-label">Assets Tracked</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">50+</span>
+                  <span class="metric-label">Daily Users</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">30%</span>
+                  <span class="metric-label">Time Saved</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">PHP 7.4+</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">Bootstrap</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-card__img">
+              <img src="../assets/images/small_office_setup.jpeg" alt="Office LAN network design" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">Completed</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--network">LAN</span>
+                <span class="tag tag--network">VLAN</span>
+              </div>
+              <h3 data-i18n="proj4.title">Office Network Redesign</h3>
+              <p class="project-card__desc" data-i18n="proj4.desc">Complete LAN redesign featuring VLAN segmentation, optimised routing, and dual internet failover for enhanced reliability.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">4</span>
+                  <span class="metric-label">VLANs</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">100Mbps</span>
+                  <span class="metric-label">Link Speed</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">0 Min</span>
+                  <span class="metric-label">Failover</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">Cisco Catalyst</span>
+                <span class="tech-badge">OSPF</span>
+                <span class="tech-badge">QoS</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-1">
+            <div class="project-card__img">
+              <img src="../assets/images/ms_office.jpg" alt="Security monitoring and surveillance" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">Monitoring</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--security">NVR</span>
+                <span class="tag tag--security">Security</span>
+              </div>
+              <h3 data-i18n="proj5.title">Surveillance Monitoring Dashboard</h3>
+              <p class="project-card__desc" data-i18n="proj5.desc">Configured multi-NVR systems with secure remote access, role-based permissions, and real-time alerts for management and security teams.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">24/7</span>
+                  <span class="metric-label">Monitoring</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">8TB</span>
+                  <span class="metric-label">Storage</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">30 Days</span>
+                  <span class="metric-label">Retention</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">NVR Systems</span>
+                <span class="tech-badge">RTSP Streaming</span>
+                <span class="tech-badge">Role-Based Access</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-2">
+            <div class="project-card__img">
+              <img src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Documentation and knowledge base" loading="lazy" />
+              <div class="project-card__overlay">
+                <span class="project-badge">Ongoing</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--docs">Documentation</span>
+                <span class="tag tag--docs">Support</span>
+              </div>
+              <h3 data-i18n="proj6.title">Staff IT Support Knowledge Base</h3>
+              <p class="project-card__desc" data-i18n="proj6.desc">Developed comprehensive internal documentation and self-service guides significantly reducing recurring support tickets and response times.</p>
+              <div class="project-metrics">
+                <div class="metric">
+                  <span class="metric-value">150+</span>
+                  <span class="metric-label">Articles</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">60%</span>
+                  <span class="metric-label">Issue Reduction</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-value">Self-Service</span>
+                  <span class="metric-label">Available</span>
+                </div>
+              </div>
+              <div class="project-tech">
+                <span class="tech-badge">Markdown</span>
+                <span class="tech-badge">Wiki</span>
+                <span class="tech-badge">Video Guides</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+          <p data-i18n="footer.tagline">IT Manager & Systems Engineer. Building reliable infrastructure and practical tools in Ghana.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="skills.html" data-i18n="nav.skills">Skills</a>
+          <a href="experience.html" data-i18n="nav.experience">Experience</a>
+          <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="tutorials.html" data-i18n="nav.tutorials">Tutorials</a>
+          <a href="education.html" data-i18n="nav.education">Education</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <div class="footer__socials">
+            <a href="mailto:mansonphelix@gmail.com" class="footer__social" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/mansofkgh" class="footer__social" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mansofelixkofi" class="footer__social" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/233206970842" class="footer__social" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+233206970842" class="footer__social" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNS & DHCP Configuration | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>DNS & DHCP Configuration</span>
+        </nav>
+        <h1 data-i18n="tut12.title">DNS & DHCP Configuration</h1>
+        <p data-i18n="tut12.meta">Windows Server · 13 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/rohan-ZoXCoH7tja0-unsplash.jpg" alt="Network equipment" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to install and configure DNS and DHCP roles on Windows Server</li>
+                <li>Setting up scopes, exclusions and reservations</li>
+                <li>Creating forward and reverse lookup zones</li>
+                <li>Common mistakes that cause name resolution or IP conflicts</li>
+              </ul>
+            </div>
+
+            <p>DNS and DHCP are the two services users never notice — until they break. A clean, documented configuration prevents the most common causes of slow logons, failed printers, and "server not found" errors.</p>
+
+            <h2>1. Install the roles</h2>
+            <pre>Install-WindowsFeature -Name DNS,DHCP -IncludeManagementTools</pre>
+            <p>After installation, open the management consoles and confirm both roles show as running.</p>
+
+            <h2>2. Configure DHCP</h2>
+            <p>Create a scope that matches your subnet design:</p>
+            <ul>
+              <li><strong>Start / end IP</strong> — leave room for static servers and printers</li>
+              <li><strong>Subnet mask and default gateway</strong> — usually your router or firewall</li>
+              <li><strong>DNS servers</strong> — point clients to your internal DNS servers first</li>
+              <li><strong>Exclusions</strong> — reserve the first and last addresses for infrastructure</li>
+            </ul>
+
+            <h2>3. DHCP reservations</h2>
+            <p>For servers, printers, and network cameras, create reservations by MAC address. This keeps IPs stable without hard-coding static settings on every device.</p>
+
+            <h2>4. Configure DNS</h2>
+            <p>Create a forward lookup zone for your domain and a reverse lookup zone for your subnet. Add A records for servers, printers and infrastructure, then verify resolution from client machines.</p>
+
+            <h2>5. Common mistakes</h2>
+            <ul>
+              <li>Clients receiving DNS from the wrong server after a reboot — check scope options</li>
+              <li>Duplicate DHCP scopes across sites or VLANs without relay agents</li>
+              <li>Missing reverse lookup zones, which slow name-to-IP troubleshooting</li>
+              <li>Forgetting to authorize DHCP in Active Directory</li>
+            </ul>
+
+            <blockquote>If you can ping an IP but cannot resolve its name, DNS is the problem. If you cannot get an IP at all, DHCP is the problem. Start there before you replace cables.</blockquote>
+
+            <h2>6. Quick checklist</h2>
+            <ul>
+              <li>DHCP scope with exclusions, gateway and DNS options set</li>
+              <li>Reservations for all known servers and printers</li>
+              <li>Forward and reverse DNS zones created</li>
+              <li>nslookup and ipconfig /all tests from client machines</li>
+              <li>Documented static IP list for auditors and on-call staff</li>
+            </ul>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="cctv-maintenance-troubleshooting.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/jakub-zerdzicki-WD7S-Lz12Es-unsplash.jpg" alt="CCTV maintenance" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">CCTV Maintenance & Troubleshooting</span>
+              </div>
+            </a>
+            <div></div>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

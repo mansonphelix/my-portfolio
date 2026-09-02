@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designing a Small Office Network | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Network Design</span>
+        </nav>
+        <h1 data-i18n="tut1.title">Designing a Small Office Network (CCNA Basics)</h1>
+        <p data-i18n="tut1.meta">Networking · 12 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/small_office_setup.jpeg" alt="Network equipment" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to gather requirements for a small office network</li>
+                <li>IP addressing planning with VLAN separation</li>
+                <li>Core device selection and switch configuration</li>
+                <li>Testing and handover best practices</li>
+              </ul>
+            </div>
+            <p>A reliable small-office network starts with clear requirements, sensible IP planning, and equipment that matches the scale of the organisation. This guide walks through the practical steps I use when designing LANs for offices and municipal units in Ghana.</p>
+
+            <h2>1. Gather requirements</h2>
+            <ul>
+              <li>Number of users and devices (PCs, printers, phones, CCTV, access points)</li>
+              <li>Need for guest Wi-Fi separation</li>
+              <li>Internet bandwidth and whether failover is required</li>
+              <li>Physical layout — floors, cable runs, power points</li>
+            </ul>
+
+            <h2>2. IP addressing plan</h2>
+            <p>Use private RFC 1918 ranges. A common simple scheme:</p>
+            <pre>LAN clients:     192.168.10.0/24
+Servers / NVR:   192.168.20.0/24
+Management:      192.168.30.0/24
+Guest Wi-Fi:     192.168.40.0/24</pre>
+            <p>Document every static assignment. Reserve low addresses for gateways and infrastructure.</p>
+
+            <h2>3. Core devices</h2>
+            <ul>
+              <li><strong>Router / firewall</strong> — internet edge, NAT, basic firewall rules</li>
+              <li><strong>Managed switch</strong> — VLANs if you need separation (recommended even in small sites)</li>
+              <li><strong>Access points</strong> — controller-less is fine for small sites; place them for coverage, not convenience</li>
+            </ul>
+
+            <h2>4. Cabling and topology</h2>
+            <p>Prefer structured cabling to a central rack. Keep runs under 90 m for copper. Label both ends. A star topology with a clean patch panel saves hours later.</p>
+
+            <h2>5. Basic security checklist</h2>
+            <ul>
+              <li>Change default credentials on every device</li>
+              <li>Separate guest network from internal LAN</li>
+              <li>Disable unused switch ports or put them in a black-hole VLAN</li>
+              <li>Document admin access and backup configs</li>
+            </ul>
+
+            <blockquote>Good documentation is part of the design. Future you (or the next engineer) will thank you.</blockquote>
+
+            <h2>6. Test before handover</h2>
+            <p>Verify DHCP, DNS, internet, inter-VLAN routing if used, and printer discovery. Walk the floor with a laptop and phone to confirm Wi-Fi coverage.</p>
+
+            <p>This foundation scales cleanly when the organisation grows — add another switch, extend VLANs, or introduce a proper firewall without redesigning everything.</p>
+          </div>
+          <nav class="tutorial-nav">
+            <div></div>
+            <a href="vlan-configuration.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/rohan-ZoXCoH7tja0-unsplash.jpg" alt="VLAN Configuration" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">VLAN Configuration for Office Networks</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows Server Active Directory Setup | Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="../index.html" class="nav__logo">MFK<span>.</span></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="../index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="../pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="../pages/skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="../pages/experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="../pages/projects.html" class="nav__link" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../pages/tutorials.html" class="nav__link active" data-i18n="nav.tutorials">Tutorials</a></li>
+          <li><a href="../pages/education.html" class="nav__link" data-i18n="nav.education">Education</a></li>
+          <li><a href="../pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="nav__close" id="nav-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="nav__backdrop" id="nav-backdrop"></div>
+      <div class="nav__actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <button class="nav__icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="fas fa-sun" data-theme-icon></i></button>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="../index.html" data-i18n="nav.home">Home</a> <span>/</span>
+          <a href="../pages/tutorials.html" data-i18n="nav.tutorials">Tutorials</a> <span>/</span>
+          <span>Active Directory</span>
+        </nav>
+        <h1 data-i18n="tut2.title">Windows Server: Setting Up Active Directory</h1>
+        <p data-i18n="tut2.meta">Windows Server · 15 min read</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <article class="article">
+          <div class="article__hero">
+            <img src="../assets/images/server.jpg" alt="Server administration" />
+          </div>
+          <div class="article__content">
+            <div class="article__preview">
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Installing Active Directory Domain Services</li>
+                <li>Creating OUs, users and groups</li>
+                <li>Setting up DNS and DHCP for the domain</li>
+                <li>Creating your first Group Policy Object</li>
+              </ul>
+            </div>
+            <p>Active Directory (AD) turns a standalone Windows Server into the identity and policy centre of the organisation. Below is the practical path I follow for a first domain controller in a small or medium environment.</p>
+
+            <h2>Prerequisites</h2>
+            <ul>
+              <li>Windows Server (2016 / 2019 / 2022) installed and updated</li>
+              <li>Static IP address on the server</li>
+              <li>Meaningful hostname (e.g. DC01)</li>
+              <li>A domain name you control or an internal name (e.g. company.local or corp.company.com)</li>
+            </ul>
+
+            <h2>1. Install the AD DS role</h2>
+            <p>Open Server Manager → Add Roles and Features → Active Directory Domain Services. Accept the features it pulls in. After installation, promote the server to a domain controller.</p>
+
+            <h2>2. Promote to domain controller</h2>
+            <p>Choose “Add a new forest” for a green-field install. Enter the root domain name. Set a strong Directory Services Restore Mode (DSRM) password and store it securely.</p>
+            <p>DNS is usually installed together with AD DS — keep that option enabled.</p>
+
+            <h2>3. Post-promotion checks</h2>
+            <ul>
+              <li>Verify the server is in the domain and has a computer account</li>
+              <li>Confirm DNS is resolving the domain and SRV records</li>
+              <li>Check Event Viewer for AD and DNS errors</li>
+            </ul>
+
+            <h2>4. Organisational Units (OUs)</h2>
+            <p>Create a logical OU structure early, for example:</p>
+            <pre>Company
+├── Users
+│   ├── Staff
+│   └── IT
+├── Computers
+│   ├── Workstations
+│   └── Servers
+└── Groups
+    ├── Security
+    └── Distribution</pre>
+            <p>Avoid dumping everything into the default Users container.</p>
+
+            <h2>5. First Group Policy Object</h2>
+            <p>Create a GPO linked to the Workstations OU that:</p>
+            <ul>
+              <li>Enforces a password policy suitable for the organisation</li>
+              <li>Maps a common network drive</li>
+              <li>Sets the default home page or trusted sites if needed</li>
+            </ul>
+            <p>Test with a single pilot computer before wide deployment.</p>
+
+            <h2>6. Backup and documentation</h2>
+            <p>Enable system state backups (or full server backups). Document the domain name, FSMO roles (on a single DC they are all local), admin accounts, and OU design.</p>
+
+            <blockquote>A clean AD structure is easier to secure and much easier to hand over.</blockquote>
+
+            <p>Once this base is stable you can add a second domain controller for redundancy, introduce file shares with NTFS + share permissions, and start centralising applications that support AD authentication.</p>
+          </div>
+          <nav class="tutorial-nav">
+            <a href="vlan-configuration.html" class="tutorial-nav__link">
+              <img class="tutorial-nav__img" src="../assets/images/rohan-ZoXCoH7tja0-unsplash.jpg" alt="VLAN Configuration" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.prev">Previous tutorial</span>
+                <span class="tutorial-nav__title">VLAN Configuration for Office Networks</span>
+              </div>
+            </a>
+            <a href="active-directory-gpo.html" class="tutorial-nav__link tutorial-nav__link--next">
+              <img class="tutorial-nav__img" src="../assets/images/growtika-WELyMatW3mw-unsplash.jpg" alt="Group Policy" loading="lazy" />
+              <div class="tutorial-nav__content">
+                <span class="tutorial-nav__label" data-i18n="tut.nav.next">Next tutorial</span>
+                <span class="tutorial-nav__title">Active Directory Group Policy Essentials</span>
+              </div>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border:none;padding-top:0">
+        <p>&copy; <span id="year"></span> Manso Felix Kofi. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p data-i18n="footer.built">Built for reliability · Ready for GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
