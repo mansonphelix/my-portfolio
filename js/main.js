@@ -7,6 +7,106 @@
   const STORAGE_THEME = "mfk-theme";
   const STORAGE_LANG = "mfk-lang";
   const tutorialTextSources = new Map();
+  const frenchCorrections = {
+    "1. Choose backup targets": "1. Choisissez les cibles de sauvegarde",
+    "2. Configure Windows Server Backup": "2. Configurez la sauvegarde Windows Server",
+    "3. Retention and rotation": "3. Rétention et rotation",
+    "4. Test restores regularly": "4. Testez régulièrement les restaurations",
+    "5. Quick checklist": "5. Liste de contrôle rapide",
+    "What you'll learn": "Ce que vous apprendrez",
+    "Basic monitoring tools": "Outils de supervision de base",
+    "Alerting rules that work": "Des règles d'alerte efficaces",
+    "Log review routine": "Routine d'analyse des journaux",
+    "Define what matters": "Définissez ce qui compte",
+    "Choose backup targets": "Choisissez les cibles de sauvegarde",
+    "Test restores regularly": "Testez régulièrement les restaurations",
+    "Quick start checklist": "Liste de contrôle pour commencer",
+    "Quick checklist": "Liste de contrôle rapide",
+    "Site survey": "Étude du site",
+    "Camera and NVR selection": "Choix des caméras et du NVR",
+    "Remote access — keep it secure": "Accès distant : gardez-le sécurisé",
+    "Handover": "Passation",
+    "Initial OS installation": "Installation initiale du système d'exploitation",
+    "Gather requirements": "Recueillez les besoins",
+    "Core devices": "Équipements principaux",
+    "Cabling and topology": "Câblage et topologie",
+    "Basic security checklist": "Liste de contrôle de sécurité de base",
+    "Test before handover": "Testez avant la passation",
+    "Network share (SMB)": "Partage réseau (SMB)",
+    "External USB / eSATA": "USB externe / eSATA",
+    "Server Tools": "Outils serveur",
+    "Alerting": "Alertes",
+    "Database Design": "Conception de base de données",
+    "Switch Config": "Configuration des commutateurs",
+    "Software Deployment": "Déploiement de logiciels",
+    "Remote Viewing": "Visualisation à distance"
+    ,"Prerequisites": "Prérequis"
+    ,"1. Organise with OUs": "1. Organisez les UO"
+    ,"2. Start with security baselines": "2. Commencez par les bases de sécurité"
+    ,"3. Deploy software wisely": "3. Déployez les logiciels avec discernement"
+    ,"4. Drive maps and printers": "4. Mappages de lecteurs et imprimantes"
+    ,"5. Maintenance tips": "5. Conseils de maintenance"
+    ,"1. Install the AD DS role": "1. Installez le rôle AD DS"
+    ,"2. Promote to domain controller": "2. Promouvez le serveur en contrôleur de domaine"
+    ,"3. Post-promotion checks": "3. Vérifications après promotion"
+    ,"4. Organisational Units (OUs)": "4. Unités organisationnelles (UO)"
+    ,"5. First Group Policy Object": "5. Premier objet de stratégie de groupe"
+    ,"6. Backup and documentation": "6. Sauvegarde et documentation"
+    ,"1. Site survey": "1. Étude du site"
+    ,"2. Camera and NVR selection": "2. Choix des caméras et du NVR"
+    ,"3. Cabling": "3. Câblage"
+    ,"4. NVR configuration": "4. Configuration du NVR"
+    ,"5. Remote access — keep it secure": "5. Accès distant : gardez-le sécurisé"
+    ,"6. Handover": "6. Passation"
+    ,"1. Routine maintenance": "1. Maintenance courante"
+    ,"2. Common camera issues": "2. Problèmes courants des caméras"
+    ,"3. NVR and storage checks": "3. Vérifications du NVR et du stockage"
+    ,"4. Remote access": "4. Accès distant"
+    ,"5. Quick maintenance schedule": "5. Calendrier de maintenance rapide"
+    ,"1. Identify key areas": "1. Identifiez les zones clés"
+    ,"2. Camera angles and height": "2. Angles et hauteur des caméras"
+    ,"3. Lighting conditions": "3. Conditions d'éclairage"
+    ,"4. Recording settings": "4. Paramètres d'enregistrement"
+    ,"5. NVR placement and security": "5. Emplacement et sécurité du NVR"
+    ,"1. Install the roles": "1. Installez les rôles"
+    ,"2. Configure DHCP": "2. Configurez DHCP"
+    ,"3. DHCP reservations": "3. Réservations DHCP"
+    ,"4. Configure DNS": "4. Configurez DNS"
+    ,"5. Common mistakes": "5. Erreurs courantes"
+    ,"6. Quick checklist": "6. Liste de contrôle rapide"
+    ,"1. Initial OS installation": "1. Installation initiale du système d'exploitation"
+    ,"2. System updates and essentials": "2. Mises à jour et éléments essentiels du système"
+    ,"3. User and SSH configuration": "3. Configuration des utilisateurs et de SSH"
+    ,"4. Firewall setup": "4. Configuration du pare-feu"
+    ,"5. Ongoing maintenance": "5. Maintenance continue"
+    ,"1. Gather requirements": "1. Recueillez les besoins"
+    ,"2. IP addressing plan": "2. Plan d'adressage IP"
+    ,"3. Core devices": "3. Équipements principaux"
+    ,"4. Cabling and topology": "4. Câblage et topologie"
+    ,"5. Basic security checklist": "5. Liste de contrôle de sécurité de base"
+    ,"6. Test before handover": "6. Testez avant la passation"
+    ,"1. Define what matters": "1. Définissez ce qui compte"
+    ,"2. Basic monitoring tools": "2. Outils de supervision de base"
+    ,"3. Alerting rules that work": "3. Des règles d'alerte efficaces"
+    ,"4. Log review routine": "4. Routine d'analyse des journaux"
+    ,"5. Quick start checklist": "5. Liste de contrôle pour commencer"
+    ,"1. Define the problem clearly": "1. Définissez clairement le problème"
+    ,"2. Database design": "2. Conception de la base de données"
+    ,"3. Project layout": "3. Structure du projet"
+    ,"4. Connection and security basics": "4. Bases de la connexion et de la sécurité"
+    ,"5. Forms and validation": "5. Formulaires et validation"
+    ,"6. Deployment on a local or internal server": "6. Déploiement sur un serveur local ou interne"
+    ,"7. Iterate with users": "7. Améliorez avec les utilisateurs"
+    ,"1. Plan your VLANs": "1. Planifiez vos VLAN"
+    ,"2. Configure the switch": "2. Configurez le commutateur"
+    ,"3. Configure the router or Layer 3 switch": "3. Configurez le routeur ou le commutateur de couche 3"
+    ,"4. Test and verify": "4. Testez et vérifiez"
+    ,"5. Common pitfalls": "5. Pièges courants"
+  };
+
+  function isUsableFrenchTranslation(value) {
+    return Boolean(value && !/MYMEMORY WARNING|NEXT AVAILABLE|TRANSLATION ERROR|QUOTA/i.test(value));
+  }
 
   /* ---------- Theme ---------- */
   function getPreferredTheme() {
@@ -119,6 +219,13 @@
       }
     });
 
+    if (lang === "fr") {
+      document.querySelectorAll(".article__content h2").forEach((heading) => {
+        const correction = frenchCorrections[heading.textContent.trim()];
+        if (correction) heading.textContent = correction;
+      });
+    }
+
     translatePageText(lang);
 
     // Placeholders specifically
@@ -161,20 +268,28 @@
       const leadingWhitespace = source.match(/^\s*/)[0];
       const trailingWhitespace = source.match(/\s*$/)[0];
       const cacheKey = `mfk-fr:${source}`;
+      const corrected = frenchCorrections[source];
+      if (corrected) {
+        localStorage.setItem(cacheKey, corrected);
+        textNode.nodeValue = leadingWhitespace + corrected + trailingWhitespace;
+        return;
+      }
       const cached = localStorage.getItem(cacheKey);
-      if (cached) {
+      if (isUsableFrenchTranslation(cached)) {
         textNode.nodeValue = leadingWhitespace + cached + trailingWhitespace;
         return;
       }
+      if (cached) localStorage.removeItem(cacheKey);
 
       try {
         const response = await fetch(
           `https://api.mymemory.translated.net/get?q=${encodeURIComponent(source)}&langpair=en|fr`
         );
+        if (!response.ok) return;
         const result = await response.json();
         const translated = result.responseData && result.responseData.translatedText;
-        if (translated) {
-          const cleanTranslation = translated.trim();
+        if (isUsableFrenchTranslation(translated)) {
+          const cleanTranslation = frenchCorrections[source] || translated.trim();
           localStorage.setItem(cacheKey, cleanTranslation);
           textNode.nodeValue = leadingWhitespace + cleanTranslation + trailingWhitespace;
         }
