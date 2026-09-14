@@ -2,7 +2,7 @@
 
 Multi-page, production-ready portfolio with **dual language (English / French)**, **dark & light themes**, tech animations, tutorials, and a working contact form.
 
-Built with plain HTML, CSS and JavaScript — no build step. Ready for GitHub Pages.
+Built with plain HTML, CSS and JavaScript — no build step.
 
 ## Features
 

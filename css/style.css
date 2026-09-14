@@ -3508,8 +3508,8 @@ button, input, textarea, select {
     position: fixed;
     top: 0;
     right: -110%;
-    width: min(230px, 78%);
-    max-width: 250px;
+    width: min(330px, 88vw);
+    max-width: 330px;
     height: 100vh;
     height: 100dvh;
     background:
@@ -3517,7 +3517,7 @@ button, input, textarea, select {
       var(--bg);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    padding: 0.7rem 0.75rem 0.85rem;
+    padding: 1rem 1rem 1.15rem;
     transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -30px 0 80px -10px rgba(0, 0, 0, 0.55);
     z-index: 1100;
@@ -3526,7 +3526,8 @@ button, input, textarea, select {
     flex-direction: column;
     overflow-y: auto;
     overscroll-behavior: contain;
-    gap: 0.25rem;
+    gap: 0.45rem;
+    border-radius: 0 0 0 18px;
   }
   [data-theme="light"] .nav__menu {
     background:
@@ -3536,8 +3537,8 @@ button, input, textarea, select {
   }
   .nav__menu.show {
     right: 0;
-    width: min(200px, 70%);
-    max-width: 220px;
+    width: min(330px, 88vw);
+    max-width: 330px;
   }
 
   .nav__menu-header {
@@ -3545,8 +3546,8 @@ button, input, textarea, select {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    padding: 0.15rem 0.1rem 0.55rem;
-    margin-bottom: 0.25rem;
+    padding: 0.1rem 0.1rem 0.85rem;
+    margin-bottom: 0.35rem;
     border-bottom: 1px solid rgba(148, 163, 184, 0.1);
     position: sticky;
     top: -1rem;
@@ -3660,15 +3661,17 @@ button, input, textarea, select {
   .nav__list {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.25rem;
+    gap: 0.35rem;
     flex: 1;
+    margin: 0.25rem 0;
   }
 
   .nav__link {
-    font-size: 0.82rem;
-    font-weight: 500;
-    padding: 0.45rem 0.75rem;
-    border-radius: 9px;
+    font-size: 0.9rem;
+    font-weight: 550;
+    min-height: 44px;
+    padding: 0.7rem 0.85rem;
+    border-radius: 10px;
     background: transparent;
     border: 1px solid transparent;
     color: var(--text-muted);
@@ -3681,8 +3684,8 @@ button, input, textarea, select {
 
   .nav__link-text {
     flex: 1;
-    line-height: 1.1;
-    letter-spacing: -0.005em;
+    line-height: 1.2;
+    letter-spacing: 0;
   }
 
   .nav__link:hover {
@@ -3739,8 +3742,8 @@ button, input, textarea, select {
   }
 
   .nav__menu-footer {
-    margin-top: 0.4rem;
-    padding-top: 0.65rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
     border-top: 1px solid rgba(148, 163, 184, 0.1);
     display: flex;
     flex-direction: column;
@@ -3750,10 +3753,11 @@ button, input, textarea, select {
   .nav__menu-actions {
     display: flex;
     gap: 0.45rem;
+    align-items: stretch;
   }
 
   .nav__menu-actions .lang-switch,
-  .nav__menu-actions #theme-toggle {
+  .nav__menu-actions .nav__icon-btn {
     flex: 1;
     justify-content: center;
   }
@@ -3775,12 +3779,13 @@ button, input, textarea, select {
   .nav__menu-actions .lang-switch button:first-child { border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
   .nav__menu-actions .lang-switch button:last-child { border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
 
-  .nav__menu-actions #theme-toggle {
-    height: 38px;
+  .nav__menu-actions .nav__icon-btn {
+    height: 34px;
     width: auto;
-    border-radius: 10px;
+    border-radius: 9px;
     background: var(--bg-elevated);
     border-color: var(--border);
+    font-size: 0.85rem;
   }
 
   .nav__cta {

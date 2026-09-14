@@ -225,6 +225,7 @@ const translations = {
     "tut12.preview2": "DHCP Scopes",
     "tut12.preview3": "Reservations",
     "tut.read": "Read tutorial",
+    "tut.learn": "What you'll learn",
     "tut.nav.prev": "Previous tutorial",
     "tut.nav.next": "Next tutorial",
     "tut1.preview1": "IP Planning",
@@ -314,7 +315,6 @@ const translations = {
     "footer.resources": "Resources",
     "footer.connect": "Connect",
     "footer.rights": "All rights reserved.",
-    "footer.built": "Built for reliability · Ready for GitHub Pages"
   },
 
   fr: {
@@ -534,6 +534,7 @@ const translations = {
     "tut12.preview2": "Étendues DHCP",
     "tut12.preview3": "Réservations",
     "tut.read": "Lire le tutoriel",
+    "tut.learn": "Ce que vous apprendrez",
     "tut.nav.prev": "Tutoriel précédent",
     "tut.nav.next": "Tutoriel suivant",
     "tut1.preview1": "Planification IP",
@@ -620,6 +621,5 @@ const translations = {
     "footer.resources": "Ressources",
     "footer.connect": "Connexion",
     "footer.rights": "Tous droits réservés.",
-    "footer.built": "Conçu pour la fiabilité · Prêt pour GitHub Pages"
   }
 };

@@ -6,6 +6,7 @@
 
   const STORAGE_THEME = "mfk-theme";
   const STORAGE_LANG = "mfk-lang";
+  const tutorialTextSources = new Map();
 
   /* ---------- Theme ---------- */
   function getPreferredTheme() {
@@ -57,11 +58,134 @@
         }
       }
     });
+
+    document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+      const attributes = el.getAttribute("data-i18n-attr").split(",");
+      attributes.forEach((attribute) => {
+        const key = el.getAttribute(`data-i18n-${attribute}`);
+        if (key && dict[key] !== undefined) el.setAttribute(attribute, dict[key]);
+      });
+    });
+
+    const tutorialKeys = {
+      "network-design.html": "tut1",
+      "active-directory.html": "tut2",
+      "cctv-deploy.html": "tut3",
+      "php-mysql-app.html": "tut4",
+      "linux-server-setup.html": "tut5",
+      "vlan-configuration.html": "tut6",
+      "cctv-placement.html": "tut7",
+      "active-directory-gpo.html": "tut8",
+      "windows-server-backup-strategies.html": "tut9",
+      "network-monitoring-observability.html": "tut10",
+      "cctv-maintenance-troubleshooting.html": "tut11",
+      "dns-dhcp-configuration.html": "tut12"
+    };
+    const currentFile = window.location.pathname.split("/").pop() || "index.html";
+    const currentTutorialKey = tutorialKeys[currentFile];
+    const pageTitleKeys = {
+      "about.html": "about.pageTitle",
+      "skills.html": "skills.pageTitle",
+      "experience.html": "exp.pageTitle",
+      "projects.html": "proj.pageTitle",
+      "tutorials.html": "tut.pageTitle",
+      "education.html": "edu.pageTitle",
+      "contact.html": "contact.pageTitle"
+    };
+    const pageTitleKey = document.body.dataset.titleKey;
+    if (pageTitleKey && dict[pageTitleKey]) document.title = dict[pageTitleKey];
+    if (!currentTutorialKey && pageTitleKeys[currentFile] && dict[pageTitleKeys[currentFile]]) {
+      document.title = `${dict[pageTitleKeys[currentFile]]} | Manso Felix Kofi`;
+    }
+    if (currentTutorialKey && dict[`${currentTutorialKey}.title`]) {
+      document.title = `${dict[`${currentTutorialKey}.title`]} | ${dict["nav.tutorials"]}`;
+      const breadcrumb = document.querySelector(".breadcrumb");
+      const currentPage = breadcrumb && breadcrumb.lastElementChild;
+      if (currentPage && currentPage.tagName !== "A") {
+        currentPage.textContent = dict[`${currentTutorialKey}.title`];
+      }
+    }
+    document.querySelectorAll(".tutorial-nav__link[href]").forEach((link) => {
+      const fileName = link.getAttribute("href").split("/").pop();
+      const key = tutorialKeys[fileName];
+      const title = key && dict[`${key}.title`];
+      const titleEl = link.querySelector(".tutorial-nav__title");
+      if (title && titleEl) titleEl.textContent = title;
+    });
+
+    document.querySelectorAll(".article__preview h3").forEach((el) => {
+      if (el.textContent.trim() === "What you'll learn" || el.textContent.trim() === "Ce que vous apprendrez") {
+        el.textContent = dict["tut.learn"];
+      }
+    });
+
+    translatePageText(lang);
+
     // Placeholders specifically
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
       const key = el.getAttribute("data-i18n-placeholder");
       if (dict[key] !== undefined) el.placeholder = dict[key];
     });
+  }
+
+  async function translatePageText(lang) {
+    const contentRoots = document.querySelectorAll("main, footer");
+    if (!contentRoots.length) return;
+
+    const nodes = [];
+    contentRoots.forEach((root) => {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!node.nodeValue.trim() || !parent || parent.closest("[data-i18n], pre, code, #typed-text, .article__preview h3")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+      });
+      let node;
+      while ((node = walker.nextNode())) nodes.push(node);
+    });
+
+    if (lang !== "fr") {
+      nodes.forEach((textNode) => {
+        const source = tutorialTextSources.get(textNode);
+        if (source) textNode.nodeValue = source;
+      });
+      return;
+    }
+
+    const translateNode = async (textNode) => {
+      const source = tutorialTextSources.get(textNode) || textNode.nodeValue;
+      tutorialTextSources.set(textNode, source);
+      const leadingWhitespace = source.match(/^\s*/)[0];
+      const trailingWhitespace = source.match(/\s*$/)[0];
+      const cacheKey = `mfk-fr:${source}`;
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        textNode.nodeValue = leadingWhitespace + cached + trailingWhitespace;
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `https://api.mymemory.translated.net/get?q=${encodeURIComponent(source)}&langpair=en|fr`
+        );
+        const result = await response.json();
+        const translated = result.responseData && result.responseData.translatedText;
+        if (translated) {
+          const cleanTranslation = translated.trim();
+          localStorage.setItem(cacheKey, cleanTranslation);
+          textNode.nodeValue = leadingWhitespace + cleanTranslation + trailingWhitespace;
+        }
+      } catch (error) {
+        // Keep the original English text when the translation service is unavailable.
+      }
+    };
+
+    for (let index = 0; index < nodes.length; index += 4) {
+      await Promise.all(nodes.slice(index, index + 4).map(translateNode));
+    }
   }
 
   function setTranslatedText(el, text) {
